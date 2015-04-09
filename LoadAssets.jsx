@@ -13,20 +13,28 @@ var LoadAssets = React.createClass({
     ;
 
     Array.prototype.forEach.call(this.props.assets, function(asset) {
-      console.log("LoadAssets — asset to load", asset);
       _self.loadAsset(asset.uri, function(e) {
         loadedAssets++;
+        console.log("LOADED ASSET:", asset.uri);
         if (loadedAssets == totalAssets) _self.setState({loaded: true});        
       });
     });
   },
 
   loadAsset: function(uri, callback) {
-    var image = new Image();
-
     if (uri.toLowerCase().match("jpg|jpeg|gif|png") !== null) {
+      var image = new Image();
       image.src = uri;
       image.onload = callback;
+    }
+
+    if (uri.toLowerCase().match("mp4|webm|ogv") !== null) {
+      var video = document.createElement('video');
+      var source = document.createElement('source'); 
+      source.src = uri;
+      video.setAttribute("preload", "auto");
+      video.appendChild(source);
+      video.addEventListener('canplaythrough', callback, false);
     }
   }, 
 
@@ -46,7 +54,11 @@ var LoadAssets = React.createClass({
         }
         // it's a video
         if (asset.uri.toLowerCase().match("mp4|webm|ogv") !== null) {
-          outputAsset = <h1>this is a video</h1>;
+          outputAsset = (
+            <video autoPlay="true" loop="true">
+              <source src={asset.uri} type="video/mp4" />
+            </video>
+          );
         }
       });
 
