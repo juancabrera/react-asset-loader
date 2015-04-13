@@ -15,7 +15,6 @@ var LoadAssets = React.createClass({
     Array.prototype.forEach.call(this.props.assets, function(asset) {
       _self.loadAsset(asset.uri, function(e) {
         loadedAssets++;
-        console.log("LOADED ASSET:", asset.uri);
         if (loadedAssets == totalAssets) _self.setState({loaded: true});        
       });
     });
@@ -55,7 +54,7 @@ var LoadAssets = React.createClass({
         // it's a video
         if (asset.uri.toLowerCase().match("mp4|webm|ogv") !== null) {
           outputAsset = (
-            <video autoPlay="true" loop="true">
+            <video className={asset.classNames} >
               <source src={asset.uri} type="video/mp4" />
             </video>
           );
