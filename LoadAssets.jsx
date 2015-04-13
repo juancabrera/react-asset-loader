@@ -46,18 +46,28 @@ var LoadAssets = React.createClass({
     } else {
       // asset fully loaded — show asset
       var assets = this.props.assets.map(function(asset) {
+        var assetOutput;
         // it's an image
         if (asset.uri.toLowerCase().match("jpg|jpeg|gif|png") !== null) {
-          output.push(<img src={asset.uri} className={asset.className} />);
+          assetOutput = (<img src={asset.uri} className={asset.className} />);
         }
         // it's a video
         if (asset.uri.toLowerCase().match("mp4|webm|ogv") !== null) {
-          output.push(
+          assetOutput = (
             <video className={asset.className} >
               <source src={asset.uri} type="video/mp4" />
             </video>
           );
         }
+
+        // adding props if any
+        if (asset.attributes !== undefined) {
+          Array.prototype.forEach.call(asset.attributes, function(a) {
+            assetOutput.props[Object.keys(a)[0]] = a[Object.keys(a)[0]];
+          });
+        }
+
+        output.push(assetOutput);
       });
     }
 
