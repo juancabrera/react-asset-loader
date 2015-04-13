@@ -15,7 +15,7 @@ var LoadAssets = React.createClass({
     Array.prototype.forEach.call(this.props.assets, function(asset) {
       _self.loadAsset(asset.uri, function(e) {
         loadedAssets++;
-        if (loadedAssets == totalAssets) _self.setState({loaded: true});        
+        if (loadedAssets == totalAssets) _self.setState({loaded: true});
       });
     });
   },
@@ -38,31 +38,30 @@ var LoadAssets = React.createClass({
   }, 
 
   render: function() {
+    var output = [];
+
     if (!this.state.loaded) {
       // asset not loaded yet — loading UI
-      return (
-        <div className="ball-clip-rotate"></div>
-      );
+      output.push(<div className="ball-clip-rotate"></div>);
     } else {
       // asset fully loaded — show asset
-      var outputAsset;
       var assets = this.props.assets.map(function(asset) {
         // it's an image
         if (asset.uri.toLowerCase().match("jpg|jpeg|gif|png") !== null) {
-          outputAsset = <img src={asset.uri} className={asset.classNames} />;
+          output.push(<img src={asset.uri} className={asset.className} />);
         }
         // it's a video
         if (asset.uri.toLowerCase().match("mp4|webm|ogv") !== null) {
-          outputAsset = (
-            <video className={asset.classNames} >
+          output.push(
+            <video className={asset.className} >
               <source src={asset.uri} type="video/mp4" />
             </video>
           );
         }
       });
-
-      return outputAsset;
     }
+
+    return (<div>{output}</div>); 
   }
 });
 
