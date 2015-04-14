@@ -15,7 +15,10 @@ var LoadAssets = React.createClass({
     Array.prototype.forEach.call(this.props.assets, function(asset) {
       _self.loadAsset(asset.uri, function(e) {
         loadedAssets++;
-        if (loadedAssets == totalAssets) _self.setState({loaded: true});
+        if (loadedAssets == totalAssets) {
+          _self.setState({loaded: true});
+          if (typeof(_self.props.onLoad) === "function") _self.props.onLoad();
+        }
       });
     });
   },
