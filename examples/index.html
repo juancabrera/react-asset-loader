@@ -3,6 +3,7 @@
   <head>
     <script src="https://fb.me/react-0.13.2.js"></script>
     <script src="https://fb.me/JSXTransformer-0.13.2.js"></script>
+    <script src="../LoadAssets.js"></script>
     <style>
       body {
         margin: 0;
@@ -49,7 +50,7 @@
             if (gif.data.url.toLowerCase().match("gif|gifv") !== null) {
               return (
                 <div className="gif-container">
-                  <img src={gif.data.url.replace("gifv", "gif")} />
+                <LoadAssets assets={[{"uri":gif.data.url.replace("gifv", "gif"), "className":"test"}]} />
                 </div>
               )
             }
