@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://fb.me/react-0.13.2.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.13.2.js"></script>
+    <style>
+      body {
+        margin: 0;
+      }
+      .gif-container {
+        width: 33.333vw;
+        height: 50vh;
+        float: left;
+      }
+      .gif-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="perfectLoops"></div>
+    <script type="text/jsx">
+      window.onload = function() {
+        alert("loaded!");
+      }
+      var PerfectLoops = React.createClass({
+        getInitialState: function() {
+          return {data: []};
+        }, 
+
+        componentDidMount: function() {
+          var xmlhttp = new XMLHttpRequest();
+          var _self = this;
+
+          xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+              _self.setState({data: JSON.parse(xmlhttp.responseText).data.children});
+            }
+          }
+
+          xmlhttp.open("GET", "http://www.reddit.com/r/perfectloops.json?limit=20", true);
+          xmlhttp.send();
+        },
+
+        render: function() {
+          var GIFs = this.state.data.map(function(gif) {
+            if (gif.data.url.toLowerCase().match("gif|gifv") !== null) {
+              return (
+                <div className="gif-container">
+                  <img src={gif.data.url.replace("gifv", "gif")} />
+                </div>
+              )
+            }
+          });
+          return (<div>{GIFs}</div>);
+        }
+      });
+
+      React.render(
+        <PerfectLoops />,
+        document.getElementById('perfectLoops')
+      );
+    </script>
+  </body>
+</html>
