@@ -9,9 +9,13 @@
         margin: 0;
       }
       .gif-container {
-        width: 33.333vw;
+        width: 33.33vw;
         height: 50vh;
         float: left;
+      }
+      .gif-container div {
+        width: 100%;
+        height: 100%;
       }
       .gif-container img {
         width: 100%;
@@ -50,7 +54,7 @@
             if (gif.data.url.toLowerCase().match("gif|gifv") !== null) {
               return (
                 <div className="gif-container">
-                <LoadAssets assets={[{"uri":gif.data.url.replace("gifv", "gif"), "className":"test"}]} />
+                  <LoadAssets assets={[{"uri":gif.data.url.replace("gifv", "gif"), "className":"test"}]} />
                 </div>
               )
             }
