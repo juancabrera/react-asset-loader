@@ -1,5 +1,5 @@
 # React Asset Loader
-A simple and flexible React component for loading assets. It allows you to load from a single asset to multiple assets without affecting the pageload speed. You can also add custom classes, attributes and callback functions.
+A simple react component for loading assets. It allows you to load from a single asset to multiple assets without affecting the pageload speed. You can also add custom classes, attributes and callback functions.
 
 ## Concept
 We all get scared of heavy websites, there are tons and tons of articles telling us why we shouldn't build websites using heavy assets like videos or gifs. But sometimes, you just need to, sometimes you just need to build a cool interactive experience with videos, or so something cool with gifs, or a long page with lots of high quality images, etc. This component is precisely for that.
