@@ -43,7 +43,7 @@ var LoadAssets = React.createClass({
 
     if (!this.state.loaded) {
       // asset not loaded yet - loading UI
-      output.push(<div className="ball-clip-rotate"></div>);
+      output.push(<div className="loading"></div>);
     } else {
       // asset fully loaded - show asset
       var assets = this.props.assets.map(function(asset) {
@@ -72,6 +72,6 @@ var LoadAssets = React.createClass({
       });
     }
 
-    return (<div>{output}</div>); 
+    return (<div className="wrapper">{output}</div>); 
   }
 });

@@ -9,11 +9,12 @@
         margin: 0;
       }
       .gif-container {
+        position: relative;
         width: 33.33vw;
         height: 50vh;
         float: left;
       }
-      .gif-container div {
+      .gif-container div.wrapper {
         width: 100%;
         height: 100%;
       }
@@ -21,6 +22,14 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+      .loading {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: url(loading.gif) no-repeat center center;
       }
     </style>
   </head>
