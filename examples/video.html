@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://fb.me/react-0.13.2.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.13.2.js"></script>
+    <script src="../LoadAssets.js" type="text/jsx"></script>
+    <style>
+      body {
+        margin: 0;
+      }
+      .loading {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: url(loading.gif) no-repeat center center;
+      }
+      #elephantsDream {
+        width: 640px;
+        height: 360px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -180px 0 0 -320px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="elephantsDream"></div>
+    <script type="text/jsx">
+      React.render(
+        <LoadAssets assets={[{"uri":"https://archive.org/download/ElephantsDream/ed_hd.mp4", "attributes":[{"autoPlay":"true"}, {"loop":"true"}]}]} />,
+        document.getElementById('elephantsDream')
+      );
+    </script>
+  </body>
+</html>
