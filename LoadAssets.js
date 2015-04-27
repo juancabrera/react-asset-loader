@@ -56,7 +56,7 @@ var LoadAssets = React.createClass({
         if (asset.uri.toLowerCase().match("mp4|webm|ogv") !== null) {
           assetOutput = (
             <video className={asset.className} >
-              <source src={asset.uri} type="video/mp4" />
+              <source src={asset.uri} type={"video/" + asset.uri.toLowerCase().split('.').pop()} />
             </video>
           );
         }
