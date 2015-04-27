@@ -57,6 +57,11 @@ You can have a custom callback for when your assets are loaded.
 ```javascript
 <LoadAssets onLoad={this.onCoolVideoLoaded} assets={[{"uri":"/static/images/video.mp4"}]} />
 ```
+
+## Examples
+You'll need a webserver in order to run the examples (CORS). The quickest way to do this is just run this on the project folder:
+
+```python -m SimpleHTTPServer```
 ## Feedback and contributions
 Are more than welcome. 👊
 
