@@ -1,5 +1,6 @@
 var LoadAssets = React.createClass({
   getInitialState: function () {
+    // 'loaded' state by default is false
     return {loaded: false};
   },
 
@@ -10,11 +11,15 @@ var LoadAssets = React.createClass({
       loadedAssets = 0
     ;
 
+    // Start loading all the assets
     Array.prototype.forEach.call(this.props.assets, function(asset) {
       _self.loadAsset(asset.uri, function(e) {
         loadedAssets++;
         if (loadedAssets == totalAssets) {
+          // when all the assets are loaded set state 'loaded' to true
           _self.setState({loaded: true});
+
+          // when all the assets are loadad call the callback function if any
           if (typeof(_self.props.onLoad) === "function") _self.props.onLoad();
         }
       });
@@ -22,12 +27,14 @@ var LoadAssets = React.createClass({
   },
 
   loadAsset: function(uri, callback) {
+    // preload if asset is image
     if (uri.toLowerCase().match("jpg|jpeg|gif|png") !== null) {
       var image = new Image();
       image.src = uri;
       image.onload = callback;
     }
 
+    // preload if asset is video
     if (uri.toLowerCase().match("mp4|webm|ogv") !== null) {
       var video = document.createElement('video');
       var source = document.createElement('source'); 
@@ -54,6 +61,7 @@ var LoadAssets = React.createClass({
         }
         // it's a video
         if (asset.uri.toLowerCase().match("mp4|webm|ogv") !== null) {
+          // TODO: make it smart so it will create a video element with many sources instead of many video elements for different video formats
           assetOutput = (
             <video className={asset.className} >
               <source src={asset.uri} type={"video/" + asset.uri.toLowerCase().split('.').pop()} />
