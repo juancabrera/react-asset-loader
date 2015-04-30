@@ -5,7 +5,7 @@
   "main": "index.js",
   "author": {
     "name": "Juan Cabrera",
-    "email": "juan.acc@gmail.com".
+    "email": "juan.acc@gmail.com", 
     "url" : "http://juan.me/"
   },
   "homepage": "https://github.com/juancabrera/react-asset-loader",
