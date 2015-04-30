@@ -7,6 +7,11 @@ We all get scared of heavy websites, there are tons and tons of articles telling
 ## How it works.
 This component allows you to load all the assets you want without affecting the pageload speed, this is because it will load the page and then it will start loading all the assets, it adds a `<div className="loading"></div>` wrapper while it's loading the asset so you can have a nice custom loader, when the assets are loaded it will replace the `loading` wrapper with the actual assets.
 
+## Install
+```
+npm install react-asset-loader --save-dev
+```
+Or just grab the component [LoadAsset.js](https://raw.githubusercontent.com/juancabrera/react-asset-loader/master/LoadAssets.js) directly.
 
 ## Usage
 #### Load a single asset.
