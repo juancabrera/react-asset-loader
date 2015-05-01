@@ -19,7 +19,7 @@ var LoadAssets = React.createClass({
           // when all the assets are loaded set state 'loaded' to true
           _self.setState({loaded: true});
 
-          // when all the assets are loadad call the callback function if any
+          // when all the assets are loaded call the callback function if any
           if (typeof(_self.props.onLoad) === "function") _self.props.onLoad();
         }
       });
