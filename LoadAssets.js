@@ -28,7 +28,7 @@ var LoadAssets = React.createClass({
 
   loadAsset: function(uri, callback) {
     // preload if asset is image
-    if (uri.toLowerCase().match("jpg|jpeg|gif|png") !== null) {
+    if (uri.toLowerCase().match("jpg|jpeg|gif|png|webp") !== null) {
       var image = new Image();
       image.src = uri;
       image.onload = callback;
