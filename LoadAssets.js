@@ -56,7 +56,7 @@ var LoadAssets = React.createClass({
       var assets = this.props.assets.map(function(asset) {
         var assetOutput;
         // it's an image
-        if (asset.uri.toLowerCase().match("jpg|jpeg|gif|png") !== null) {
+        if (asset.uri.toLowerCase().match("jpg|jpeg|gif|png|webp") !== null) {
           assetOutput = (<img src={asset.uri} className={asset.className} />);
         }
         // it's a video
