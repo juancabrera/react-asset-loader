@@ -23,13 +23,13 @@ Or just grab the component [LoadAsset.js](https://raw.githubusercontent.com/juan
 When you need to load more than one asset for one experience. It will be loadad after all the assets passed are loaded.
 
 ```javascript
-<LoadAssets assets={[{"uri":"/static/images/video1.mp4"}, {"uri":"/static/images/video2.mp4"}]} />
+<LoadAssets assets={[{"uri":"/static/videos/video1.mp4"}, {"uri":"/static/videos/video2.mp4"}]} />
 
 // or also
 
 var videos = [
-  {"uri":"/static/images/video1.mp4"}, 
-  {"uri":"/static/images/video2.mp4"}
+  {"uri":"/static/videos/video1.mp4"}, 
+  {"uri":"/static/videos/video2.mp4"}
 ]
 <LoadAssets assets={videos} />
 ```
@@ -43,12 +43,12 @@ You can add classes to each asset you pass to the component.
 You can also add attributes to each asset you pass to the component.
 
 ```javascript
-<LoadAssets assets={[{"uri":"/static/images/video.mp4", "attributes":[{"autoPlay":"true"}, {"loop":"true"}]}]} />
+<LoadAssets assets={[{"uri":"/static/videos/video.mp4", "attributes":[{"autoPlay":"true"}, {"loop":"true"}]}]} />
 
 // or also
 
 var video = [{
-  "uri":"/static/images/video.mp4", 
+  "uri":"/static/videos/video.mp4", 
   "attributes": [
     {"autoPlay":"true"}, 
     {"loop":"true"}
@@ -60,7 +60,7 @@ var video = [{
 You can have a custom callback for when your assets are loaded. 
 
 ```javascript
-<LoadAssets onLoad={this.onCoolVideoLoaded} assets={[{"uri":"/static/images/video.mp4"}]} />
+<LoadAssets onLoad={this.onCoolVideoLoaded} assets={[{"uri":"/static/videos/video.mp4"}]} />
 ```
 
 ## Examples
