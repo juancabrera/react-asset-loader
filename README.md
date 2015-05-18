@@ -4,7 +4,7 @@ A simple react component for loading assets. It allows you to load from a single
 ## Concept
 We all get scared of heavy websites, there are tons and tons of articles telling us why we shouldn't build websites using heavy assets like videos or gifs. But sometimes, you just need to, sometimes you just need to build a cool interactive experience with videos, or so something cool with gifs, or a long page with lots of high quality images, etc. This component is precisely for that.
 
-## How it works.
+## How it works
 This component allows you to load all the assets you want without affecting the pageload speed, this is because it will load the page and then it will start loading all the assets, it adds a `<div className="loading"></div>` wrapper while it's loading the asset so you can have a nice custom loader, when the assets are loaded it will replace the `loading` wrapper with the actual assets.
 
 ## Install
@@ -14,12 +14,12 @@ npm install react-asset-loader --save-dev
 Or just grab the component [LoadAsset.js](https://raw.githubusercontent.com/juancabrera/react-asset-loader/master/LoadAssets.js) directly.
 
 ## Usage
-#### Load a single asset.
+#### Load a single asset
 
 ```javascript
 <LoadAssets assets={[{"uri":"/static/images/asset.jpg"}]} />
 ```
-#### Load multiple assets.
+#### Load multiple assets
 When you need to load more than one asset for one experience. It will be loadad after all the assets passed are loaded.
 
 ```javascript
@@ -33,13 +33,13 @@ var videos = [
 ]
 <LoadAssets assets={videos} />
 ```
-#### Adding classes.
+#### Adding classes
 You can add classes to each asset you pass to the component.
 
 ```javascript
 <LoadAssets assets={[{"uri":"/static/images/asset.jpg", "className":"class1 class2"}]} />
 ```
-#### Adding attributes.
+#### Adding attributes
 You can also add attributes to each asset you pass to the component.
 
 ```javascript
@@ -56,7 +56,7 @@ var video = [{
 }]
 <LoadAssets assets={video} />
 ```
-#### Custom onLoad callback.
+#### Custom onLoad callback
 You can have a custom callback for when your assets are loaded. 
 
 ```javascript
@@ -68,7 +68,7 @@ You'll need a webserver in order to run the examples (CORS). The quickest way to
 
 ```python -m SimpleHTTPServer```
 ## Feedback and contributions
-Are more than welcome. 👊
+Are more than welcome 👊
 
 ## License
 MIT Copyright (c) [Juan Cabrera](http://juan.me)
